@@ -26,4 +26,10 @@ class LoginController extends Controller
 
         return redirect()->route('login')->with('error', 'Login details are not valid');
     }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('login')->with('success', 'Logout successfully');
+    }
 }

@@ -20,29 +20,34 @@ Route::get('/', function(){
     return redirect('/collection');
 });
 
-// User Routes
-Route::get('/user', [HomeController::class, 'index'])->name('user.index');
 
-Route::get('/user/create', [HomeController::class, 'create'])->name('user.create');
-Route::post('/user/store', [HomeController::class, 'store'])->name('user.store');
+Route::middleware(['auth'])->group(function () {
+    // User Routes
+    Route::get('/user', [HomeController::class, 'index'])->name('user.index');
 
-Route::get('/user/edit/{id}', [HomeController::class, 'edit'])->name('user.edit');
-Route::put('/user/update/{id}', [HomeController::class, 'update'])->name('user.update');
+    Route::get('/user/create', [HomeController::class, 'create'])->name('user.create');
+    Route::post('/user/store', [HomeController::class, 'store'])->name('user.store');
 
-Route::delete('/user/delete/{id}', [HomeController::class, 'delete'])->name('user.delete');
+    Route::get('/user/edit/{id}', [HomeController::class, 'edit'])->name('user.edit');
+    Route::put('/user/update/{id}', [HomeController::class, 'update'])->name('user.update');
 
-// Collection Routes
-Route::get('/collection', [CollectionController::class, 'index'])->name('collection.index');
+    Route::delete('/user/delete/{id}', [HomeController::class, 'delete'])->name('user.delete');
 
-Route::get('/collection/create', [CollectionController::class, 'create'])->name('collection.create');
-Route::post('/collection/store', [CollectionController::class, 'store'])->name('collection.store');
+    // Collection Routes
+    Route::get('/collection', [CollectionController::class, 'index'])->name('collection.index');
 
-Route::get('/collection/edit/{id}', [CollectionController::class, 'edit'])->name('collection.edit');
-Route::put('/collection/update/{id}', [CollectionController::class, 'update'])->name('collection.update');
+    Route::get('/collection/create', [CollectionController::class, 'create'])->name('collection.create');
+    Route::post('/collection/store', [CollectionController::class, 'store'])->name('collection.store');
 
-Route::delete('/collection/delete/{id}', [CollectionController::class, 'delete'])->name('collection.delete');
+    Route::get('/collection/edit/{id}', [CollectionController::class, 'edit'])->name('collection.edit');
+    Route::put('/collection/update/{id}', [CollectionController::class, 'update'])->name('collection.update');
+
+    Route::delete('/collection/delete/{id}', [CollectionController::class, 'delete'])->name('collection.delete');
+
+});
 
 // login
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login-auth', [LoginController::class, 'login_auth'])->name('login-auth');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 

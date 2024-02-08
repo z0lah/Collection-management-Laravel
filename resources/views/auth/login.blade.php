@@ -88,8 +88,15 @@
     <script>
         Swal.fire({
                 icon: "error",
-                title: "Oops...",
                 text: "{{ session('error') }}",
+            });
+    </script>
+@endif
+@if(session('success'))
+    <script>
+        Swal.fire({
+                icon: "info",
+                text: "{{ session('success') }}",
             });
     </script>
 @endif
