@@ -3,6 +3,7 @@
 use App\Http\Controllers\CollectionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 
 
 /*
@@ -15,7 +16,9 @@ use App\Http\Controllers\HomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [HomeController::class, 'dashboard']);
+Route::get('/', function(){
+    return redirect('/collection');
+});
 
 // User Routes
 Route::get('/user', [HomeController::class, 'index'])->name('user.index');
@@ -38,3 +41,8 @@ Route::get('/collection/edit/{id}', [CollectionController::class, 'edit'])->name
 Route::put('/collection/update/{id}', [CollectionController::class, 'update'])->name('collection.update');
 
 Route::delete('/collection/delete/{id}', [CollectionController::class, 'delete'])->name('collection.delete');
+
+// login
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login-auth', [LoginController::class, 'login_auth'])->name('login-auth');
+
