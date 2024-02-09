@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
     public function index()
     {

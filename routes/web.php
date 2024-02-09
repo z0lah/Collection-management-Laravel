@@ -4,7 +4,7 @@ use App\Http\Controllers\CollectionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,15 +23,15 @@ Route::get('/', function(){
 
 Route::middleware(['auth'])->group(function () {
     // User Routes
-    Route::get('/user', [HomeController::class, 'index'])->name('user.index');
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
 
-    Route::get('/user/create', [HomeController::class, 'create'])->name('user.create');
-    Route::post('/user/store', [HomeController::class, 'store'])->name('user.store');
+    Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
 
-    Route::get('/user/edit/{id}', [HomeController::class, 'edit'])->name('user.edit');
-    Route::put('/user/update/{id}', [HomeController::class, 'update'])->name('user.update');
+    Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/user/update/{id}', [UserController::class, 'update'])->name('user.update');
 
-    Route::delete('/user/delete/{id}', [HomeController::class, 'delete'])->name('user.delete');
+    Route::delete('/user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
 
     // Collection Routes
     Route::get('/collection', [CollectionController::class, 'index'])->name('collection.index');
