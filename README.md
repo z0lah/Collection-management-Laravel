@@ -6,7 +6,7 @@ Sebuah aplikasi untuk menyimpan koleksi memanfaatkan Laravel dan menyimpan datan
 ## Live Demo
 
 Untuk mempermudah pemeriksaan, saya menyediakan versi live untuk mencoba langsung aplikasi yang saya buat, bisa langsung mengunjungi link berikut <br /> 
-[zolah-test.free.nf](http://zolah-test.free.nf)
+[zolah-test.free.nf](http://zolah-test.free.nf)<br />
 Guankan account berikut<br />
 email       : admin@mail.com <br />
 password    : admin<br />
