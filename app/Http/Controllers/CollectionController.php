@@ -11,11 +11,19 @@ class CollectionController extends Controller
 {
     public function index(){
         $data = Collections::get();
-        return view('collection\index', compact('data'));
+        $info = [
+            'title' => 'My Collection | ',
+            'description' => 'Home',
+        ];
+        return view('collection\index', compact('data', 'info'));
     }
 
     public function create(){
-        return view('collection\create');
+        $info = [
+            'title' => 'My Collection | ',
+            'description' => 'Add Collection',
+        ];
+        return view('collection\create', compact('info'));
     }
 
     public function store(){
@@ -44,7 +52,11 @@ class CollectionController extends Controller
 
     public function edit(Request $request, $id){
         $data = Collections::find($id);
-        return view('collection\edit', compact('data'));
+        $info = [
+            'title' => 'My Collection | ',
+            'description' => $data->name,
+        ];
+        return view('collection\edit', compact('data', 'info'));
     }
 
     public function update(Request $request, $id){

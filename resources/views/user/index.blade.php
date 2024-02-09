@@ -7,11 +7,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">{{ $info['description'] }}</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('collection.index')}}">Home</a></li>
               <li class="breadcrumb-item active">User</li>
             </ol>
           </div><!-- /.col -->
@@ -33,7 +33,7 @@
 
                   <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
-                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search" id="searchInput">
 
                       <div class="input-group-append">
                         <button type="submit" class="btn btn-default">

@@ -12,12 +12,20 @@ class HomeController extends Controller
     public function index()
     {
         $data = User::get();
-        return view('user\index', compact('data'));
+        $info = [
+            'title' => 'My Collection | ',
+            'description' => 'User List',
+        ];
+        return view('user\index', compact('data', 'info'));
     }
 
     public function create()
     {
-        return view('user\create');
+        $info = [
+            'title' => 'My Collection | ',
+            'description' => 'Create User',
+        ];
+        return view('user\create', compact('info'));
     }
     public function store(){
         $validator = Validator::make(request()->all(), [
@@ -46,7 +54,12 @@ class HomeController extends Controller
     public function edit(Request $request, $id){
 
         $data = User::find($id);
-        return view('user\edit', compact('data'));
+        $info = [
+            'title' => 'My Collection | ',
+            'description' => $data->name,
+        ];
+
+        return view('user\edit', compact('data', 'info'));
     }
 
     public function update(Request $request, $id){
